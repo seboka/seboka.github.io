@@ -1,0 +1,13 @@
+topics to include:
+- science language
+- math 
+    - vorto function   
+    - reinventing the generalized complex numbers
+    - dumb idiot autism thoughts turned into math
+- "thoughts" page (replacement for funny twitter posts)
+
+todo:
+- add links to about page
+- add graphing calculator functionality
+- background customization?
+- at small screen widths, make nav bar became hamburger menu and make content box stop shrinking

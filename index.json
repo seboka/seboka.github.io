@@ -1,0 +1,81 @@
+{
+    "en": {
+        "title": "seboka",
+        "h1": "site under construction!! teehee!!",
+        "p1": [
+            "This is a paragraph! Here's how you make a link: ",
+            {
+                "type": "a",
+                "href": "https://neocities.org",
+                "text": "Neocities"
+            },
+            "."
+        ],
+        "p2": [
+            "Here's how you can make ",
+            {
+                "type": "strong",
+                "text": "bold"
+            },
+            " and ",
+            {
+                "type": "em",
+                "text": "italic"
+            },
+            " text."
+        ],
+        "p3": "Here's how you can add an image: ",
+        "p4": "Here's how to make a list:",
+        "li1": "First thing",
+        "li2": "Second thing",
+        "li3": "Third thing",
+        "p5": [
+            "To learn more HTML/CSS, check out these ",
+            {
+                "type": "a",
+                "href": "https://neocities.org/tutorials",
+                "text": "tutorials"
+            },
+            "!"
+        ]
+    },
+    "eo": {
+        "h1": "retejo ankoraŭ konstruiĝas!! tiihii!",
+        "p1": [
+            "Ĉi tio estas alineo! Ĉi tiel oni faras ligilon: ",
+            {
+                "type": "a",
+                "href": "https://neocities.org",
+                "text": "Neocities"
+            },
+            "."
+        ],
+        "p2": [
+            "Jen kiel vi povas fari ",
+            {
+                "type": "strong",
+                "text": "grasan"
+            },
+            " kaj ",
+            {
+                "type": "em",
+                "text": "kursivan"
+            },
+            " tekston."
+        ],
+        "p3": "Ĉi tiel oni aldonas bildon:",
+        "p4": "Ĉi tiel oni faras liston:",
+        "li1": "Unuaĵo",
+        "li2": "Duaĵo",
+        "li3": "Triaĵo",
+        "p5": [
+            "Por lerni pli da HTML/CSS, kontrolu ĉi tiujn ",
+            {
+                "type": "a",
+                "href": "https://neocities.org/tutorials",
+                "text": "instruilojn"
+            },
+            "!"
+        ]
+    }
+}

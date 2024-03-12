@@ -1,0 +1,30 @@
+{
+    "en": {
+        "nav1": [
+            {
+                "type": "strong",
+                "text": "home"
+            }
+        ],
+        "nav2": [
+            {
+                "type": "strong",
+                "text": "about the dude"
+            }
+        ]
+    },
+    "eo": {
+        "nav1": [
+            {
+                "type": "strong",
+                "text": "ĉefpaĝo"
+            }
+        ],
+        "nav2": [
+            {
+                "type": "strong",
+                "text": "pri la sebokulo"
+            }
+        ]
+    }
+}
