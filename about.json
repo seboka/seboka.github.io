@@ -2,7 +2,27 @@
     "en": {
         "title": "about seboka",
         "h1": "about me (seboka)",
-        "p1": "my name is henning (not henry) or dina if you want, i write music and sometimes do math, learning physics too. i have a site now so i can post about what i do & learn that no one else especially wants to hear"
+        "p1": "my name is henning (or dina, if you wanna mix it up), but online i'm known as seboka. in order of when i got interested in them, i'm a composer, programmer, and mathematics and physics student. i'm what one might call a renaissance soul. others might call it autism & adhd. either is true.",
+        "p2": ["i started writing music in summer 2015, and my specialty there is video game music. my big inspirations include grant kirkhope and jake kaufman. i currently write music for two cartoons, ",
+            {
+                "type": "a",
+                "href": "https://www.youtube.com/playlist?list=PLPrvoUhfO8xa8Z1TI3wXfia68f8XSNuR4",
+                "text": "roommates"
+            }, " and ",
+            {
+                "type": "a",
+                "href": "https://youtube.com/playlist?list=PLGnC1X2iR1LadRGP6stLQgrCoDqFVU9RI",
+                "text": "radical"
+            },". i occasionally upload to my ",
+            {
+                "type": "a",
+                "href": "https://soundcloud.com/sebokaa",
+                "text": "soundcloud"
+            },", but not too frequently anymore. music in general is kinda on the backburner for now."
+        ],
+        "p3": "i started programming in 2016, in my 9th grade python/computer science class. it was first thing in the morning, and i'm very firmly a night owl. i probably spent about 1/3 of that class with my head down trying to catch another z. its a miracle i still like programming. nowadays i use python, java, javascript (obviously), and gamemaker language. ",
+        "p4": "i've always been pretty good at math (understood long division no problem, got put into 2-years-advanced classes in middle school, understood trigonometry no problem), but it being an active interest for me didn't really happen until around 9th grade. aside from it being essential for programming, i started messing around in desmos graphing calculator making cool animations and whatnot. i have a bit of a thing for desmos to this day - its my preferred graphing calculator.",
+        "p5": "my interest in theoretical physics is pretty new, at least as something i'm looking deeply into. my only real early sign of interest in physics in school was that i independently looked up what quarks are, even though they weren't taught in chemistry and whatnot. i actually signed up for a basic high school physics class, but for some reason my school just put me in for a second round of basic chemistry. so far basically all of my knowledge of physics comes from outside of school."
     },
     "eo": {
         "title": "pri seboka",

@@ -1,5 +1,5 @@
-let x = 460;
-let y = 573;
+let x = 0;
+let y = -10000;
 const pull = 5000;
 let attraction = pull;
 const c = document.getElementById("myCanvas");
@@ -9,7 +9,7 @@ let clicked = false;
 c.width = window.innerWidth;
 c.height = 1000;
 
-let dimensions = ["t","x","y"];
+let dimensions = ["t","r","T"];
 let lightspeed = 100;
 let mass = 250000; 
 let pointx = 0;
@@ -19,20 +19,12 @@ let stimeelapsed = 3 * lightspeed
 
 console.log("schwarzschild radius: "+2*mass/(lightspeed**2))
 
-//let christoffel = [[[chris(0, 0, 0), chris(0, 0, 1), chris(0, 0, 2)],
-//    [chris(0, 1, 0), chris(0, 1, 1), chris(0, 1, 2)],
-//    [chris(0, 2, 0), chris(0, 2, 1), chris(0, 2, 2)]], 
-//    [[chris(1, 0, 0), chris(1, 0, 1), chris(1, 0, 2)],
-//    [chris(1, 1, 0), chris(1, 1, 1), chris(1, 1, 2)],
-//    [chris(1, 2, 0), chris(1, 2, 1), chris(1, 2, 2)]],
-//    [[chris(2, 0, 0), chris(2, 0, 1), chris(2, 0, 2)],
-//    [chris(2, 1, 0), chris(2, 1, 1), chris(2, 1, 2)],
-//    [chris(2, 2, 0), chris(2, 2, 1), chris(2, 2, 2)]]];
+//let christoffel = [[[chris(0, 0, 0), chris(0, 0, 1), chris(0, 0, 2)],[chris(0, 1, 0), chris(0, 1, 1), chris(0, 1, 2)],[chris(0, 2, 0), chris(0, 2, 1), chris(0, 2, 2)]], [[chris(1, 0, 0), chris(1, 0, 1), chris(1, 0, 2)],[chris(1, 1, 0), chris(1, 1, 1), chris(1, 1, 2)],[chris(1, 2, 0), chris(1, 2, 1), chris(1, 2, 2)]],[[chris(2, 0, 0), chris(2, 0, 1), chris(2, 0, 2)],[chris(2, 1, 0), chris(2, 1, 1), chris(2, 1, 2)],[chris(2, 2, 0), chris(2, 2, 1), chris(2, 2, 2)]]];
 
 //console.log(christoffel)
 
 function update(x, y) {
-    console.log("trying to update")
+    //console.log("trying to update")
     ctx.clearRect(0, 0, c.width, c.height);
     //console.log(e.offsetX, e.offsetY);
     let points = [];
@@ -55,7 +47,7 @@ function update(x, y) {
         };
         points.push(column);
     };
-    console.log(points)
+    //console.log(points)
     ctx.strokeStyle = "#790e9e"
     ctx.lineWidth = 5;
     for (let i = 0; i < points.length-1; i++) {
@@ -129,10 +121,12 @@ function g(i) {
     switch(i){
         // time-time component
         case 0: 
-            return "-(1 - " + mass + " / ((" + lightspeed + " ^ 2) * 2 * sqrt((x - " + x + ") ^ 2 + (y - " + y + ") ^ 2)))^2 / (1 + " + mass + " / ((" + lightspeed + " ^ 2) * 2 * sqrt((x - " + x + ") ^ 2 + (y - " + y +") ^ 2)))^2"
+            return "-(1 - " + 2*mass + " / (r*(" + lightspeed + " ^ 2)))"
         // space components 
+        case 1:
+            return "1/(1 + (" + 2*mass + " / (r * " + lightspeed + " ^ 2)))"
         default:
-            return "(1 + (" + mass + " / (" + lightspeed + " ^ 2 * 2 * sqrt((x - " + x + ") ^ 2 + (y - " + y +") ^ 2)))^4)"
+            return "r^2"
     }   
 }
 

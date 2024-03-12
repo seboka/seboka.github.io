@@ -1,81 +1,14 @@
 {
     "en": {
         "title": "seboka",
-        "h1": "site under construction!! teehee!!",
-        "p1": [
-            "This is a paragraph! Here's how you make a link: ",
-            {
-                "type": "a",
-                "href": "https://neocities.org",
-                "text": "Neocities"
-            },
-            "."
-        ],
-        "p2": [
-            "Here's how you can make ",
-            {
-                "type": "strong",
-                "text": "bold"
-            },
-            " and ",
-            {
-                "type": "em",
-                "text": "italic"
-            },
-            " text."
-        ],
-        "p3": "Here's how you can add an image: ",
-        "p4": "Here's how to make a list:",
-        "li1": "First thing",
-        "li2": "Second thing",
-        "li3": "Third thing",
-        "p5": [
-            "To learn more HTML/CSS, check out these ",
-            {
-                "type": "a",
-                "href": "https://neocities.org/tutorials",
-                "text": "tutorials"
-            },
-            "!"
-        ]
+        "h1": "welcome to seboka's site",
+        "p1": "hello! this is where i'll post about the things i like and am working on, such as math and physics (especially pure/theoretical), music, languages and conlangs, and whatever else. i plan to get blog posts working before the next update to the site - i'll try to work on this more regularly.",
+        "p2": "this is essentially my substitute for twitter and other social medias, since i quit twitter and instagram and don't make accounts on any new sites. now it's like i have my own personal social media where no one can post but me, and i'm always right because no one argues with me. bliss."
     },
     "eo": {
-        "h1": "retejo ankoraŭ konstruiĝas!! tiihii!",
-        "p1": [
-            "Ĉi tio estas alineo! Ĉi tiel oni faras ligilon: ",
-            {
-                "type": "a",
-                "href": "https://neocities.org",
-                "text": "Neocities"
-            },
-            "."
-        ],
-        "p2": [
-            "Jen kiel vi povas fari ",
-            {
-                "type": "strong",
-                "text": "grasan"
-            },
-            " kaj ",
-            {
-                "type": "em",
-                "text": "kursivan"
-            },
-            " tekston."
-        ],
-        "p3": "Ĉi tiel oni aldonas bildon:",
-        "p4": "Ĉi tiel oni faras liston:",
-        "li1": "Unuaĵo",
-        "li2": "Duaĵo",
-        "li3": "Triaĵo",
-        "p5": [
-            "Por lerni pli da HTML/CSS, kontrolu ĉi tiujn ",
-            {
-                "type": "a",
-                "href": "https://neocities.org/tutorials",
-                "text": "instruilojn"
-            },
-            "!"
-        ]
+        "title": "seboka",
+        "h1": "bonvenon al sebokes retejo",
+        "p1": "saluton! ĉi tie mi afiŝos pri miaj ŝatatoj kaj prilaboratoj, ekzemple matematiko kaj fiziko (precipe pura kaj teoria), muziko, (plan)lingvoj, kaj ĉia alio. mi plan funkciigi blog-afiŝojn antaŭ la sekva ĝisdatigo - mi penos verki la retejon pli ofte.",
+        "p2": "la jena retejo estas mia anstataŭigo de twitter kaj aliaj socio-medioj, ĉar mi forlasis twitter kaj instagram kaj ne emas ovri kontojn sur iuj ajn novaj retejojn. ĉi tiu retejo estas kvazaŭ mia propra socia medio kie neniu krom mi povas afiŝi, kaj mi ĉiam estas prava ĉar neniu disputas al mi. delice."
     }
 }

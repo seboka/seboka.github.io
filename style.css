@@ -74,3 +74,14 @@ img{
     width: 50%;
     font-size: 18pt;
 }
+.examplepost {
+    order:inherit;
+}
+#postimage {
+    max-width: 40%;
+
+}
+#posttitle {
+    padding:30px;
+    background-color: #a80bc0;
+}
