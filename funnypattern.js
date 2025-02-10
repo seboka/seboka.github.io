@@ -1,6 +1,6 @@
 let x = 0;
 let y = -10000;
-const pull = 5000;
+const pull = 100;
 let attraction = pull;
 const c = document.getElementById("myCanvas");
 const ctx = c.getContext("2d");
@@ -10,12 +10,13 @@ c.width = window.innerWidth;
 c.height = 1000;
 
 let dimensions = ["t","r","T"];
-let lightspeed = 100;
-let mass = 250000; 
+let lightspeed = 10;
+let mass = 5000; 
 let pointx = 0;
 let pointy = 0;
 let d = 0.5
 let stimeelapsed = 3 * lightspeed
+let rsc2 = 2*mass
 
 console.log("schwarzschild radius: "+2*mass/(lightspeed**2))
 
@@ -42,7 +43,7 @@ function update(x, y) {
                 //console.log("    point " + pointx + "-" + x + ", " + pointy + "-" + y +" equates to " + Math.sqrt((pointx - x) ** 2 + (pointy - y) ** 2) + ", which is within " + 2 * mass / (lightspeed ** 2) +" of point "+x+", "+y)
                 //continue;
             //}
-            let pointnow = newton(pointx, pointy);
+            let pointnow = gr(pointx, pointy);
             column.push(pointnow);
         };
         points.push(column);
@@ -65,41 +66,73 @@ function update(x, y) {
 // DIFFERENT VISUAL EFFECTS
 
 
-function gr(px, py) {
-    //console.log("finding path of point " +px+", "+py)
-    let p = [0,px,py];
-    let v = [lightspeed,0,0];
-    let a = [-(accel(0, v)), -(accel(1, v)), -(accel(2, v))];
-    //console.log("starting with p = "+p+", t = "+t+", v = "+v+", a = "+a)
-    while (p[0] < stimeelapsed){
-        //console.log("inting number " + t);
-        //console.log("updating from t = " + t + ", p = " + p + ", v = " + v + ", a = " + a)
-        let vsmall = []
-        let asmall = []
-        for (let z = 0; z < 3; z++) {
-            vsmall.push(v[z] * d);
-            //console.log("        trying to scale value "+z+", multiplying "+a[z]+" by "+d)
-            asmall.push(a[z] * d);
-        }
-        //console.log("    scaled vectors are v = "+vsmall+", a = "+asmall)
-        p = math.add(p, vsmall)
-        v = math.add(v, asmall) 
-        a = [-(accel(0, v)), -(accel(1, v)), -(accel(2, v))]
-        //console.log("done, now t = " + t + ", p = " + p + ", v = " + v + ", a = " + a)
+//function gr(px, py) {
+//    //console.log("finding path of point " +px+", "+py)
+//    let p = [0,px,py];
+//    let v = [lightspeed,0,0];
+//    let a = [-(accel(0, v)), -(accel(1, v)), -(accel(2, v))];
+//    //console.log("starting with p = "+p+", t = "+t+", v = "+v+", a = "+a)
+//    while (p[0] < stimeelapsed){
+//        //console.log("inting number " + t);
+//        //console.log("updating from t = " + t + ", p = " + p + ", v = " + v + ", a = " + a)
+//        let vsmall = []
+//        let asmall = []
+//        for (let z = 0; z < 3; z++) {
+//            vsmall.push(v[z] * d);
+//            //console.log("        trying to scale value "+z+", multiplying "+a[z]+" by "+d)
+//            asmall.push(a[z] * d);
+//        }
+//        //console.log("    scaled vectors are v = "+vsmall+", a = "+asmall)
+//        p = math.add(p, vsmall)
+//        v = math.add(v, asmall) 
+//        a = [-(accel(0, v)), -(accel(1, v)), -(accel(2, v))]
+//        //console.log("done, now t = " + t + ", p = " + p + ", v = " + v + ", a = " + a)
+//    }
+//    let point = {
+//        nx: p[1],
+//        ny: p[2]
+//    }
+//    //console.log("point " +px+", "+py+" ended up at "+p)
+//    return point;
+//}
+
+// returns a relocated point based on input point (point on screen px and py, not mouse position x and y)
+function gr(px, py){
+    let tempx = px
+    let tempy = py
+    let tempr = Math.sqrt((px-x) ** 2 + (py-y) ** 2)
+    let rs = rsc2/(lightspeed**2)
+    //console.log("currently dealing with point ("+px+", "+py+"), relative to mouse position ("+x+", "+y+")")
+    // if point is inside event horizon
+    if (tempr <= rsc2/(lightspeed**2)) {
+        tempx = px - (px-x) * (1 - rs / tempr)
+        tempy = py - (py-y) * (1 - rs / tempr)
+        //console.log("point is inside radius already, moved to ("+tempx+", "+tempy+")")
     }
+    else {
+        // add schwarzchild acceleration 
+        tempx = px - 100 * ((px - x) * ((rs / (tempr ** 2)) - ((rs ** 2) / (tempr ** 3))))
+        tempy = py - 100 * ((py - y) * ((rs / (tempr ** 2)) - ((rs ** 2) / (tempr ** 3))))
+        //console.log("point moved to ("+px + ((px - x) * ((rs / (tempr ** 2)) - ((rs ** 2) / (tempr ** 3))))+", "+py + ((py - y) * ((rs / (tempr ** 2)) - ((rs ** 2) / (tempr ** 3))))+")")
+    }
+    // if moved point has landed inside event horizon
+    if (Math.sqrt((tempx - x) ** 2 + (tempy - y) ** 2) < rs) {
+        tempx = px - (px-x) * (1 - rs / tempr)
+        tempy = py - (py-y) * (1 - rs / tempr)
+        //console.log("point landed inside radius, moved to ("+tempx+", "+tempy+")")
+    } 
     let point = {
-        nx: p[1],
-        ny: p[2]
+        nx: tempx,
+        ny: tempy
     }
-    //console.log("point " +px+", "+py+" ended up at "+p)
     return point;
 }
 
 function newton(px, py) {
     //return ([px,py]+pull*([x,y]-[px,py]))/(pull(Math.sqrt((x-px)**2+(y-py)**2)))
     let point = {
-        nx: px - ((attraction * (px - x)) / (attraction + (Math.sqrt(((x - px) ** 2) + ((y - py) ** 2)) ** 2))),
-        ny: py - ((attraction * (py - y)) / (attraction + (Math.sqrt(((x - px) ** 2) + ((y - py) ** 2)) ** 2)))
+        nx: px - ((attraction * (px - x)) / (attraction + (((x - px) ** 2) + ((y - py) ** 2)))),
+        ny: py - ((attraction * (py - y)) / (attraction + (((x - px) ** 2) + ((y - py) ** 2))))
     }
     return point;
 }
@@ -184,7 +217,8 @@ document.addEventListener("mouseup", function () {
 })
 
 setInterval(function changeAttraction() {
-    attraction = attraction + (pull * (1+clicked) - attraction) / 2;
+    attraction = attraction + (10 * (1+clicked) - attraction) / 2;
+    lightspeed = lightspeed + (10 * (1+clicked) - lightspeed) / 2;
     update(x, y)
 }, 16);
 
